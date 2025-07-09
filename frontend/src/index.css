@@ -1,1 +1,23 @@
 @import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --animate-spin-pulse: spin-slow 2s linear infinite,
+    pulse-bright 1.2s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-bright {
+  0%,
+  100% {
+    filter: brightness(1.2);
+  }
+  50% {
+    filter: brightness(0.7);
+  }
+}

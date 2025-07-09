@@ -33,9 +33,12 @@ export const signup = async (req, res) => {
       generateToken(newUser._id, res);
       await newUser.save();
       res.status(201).json({
-        id: newUser._id,
-        name: newUser.name,
-        email: newUser.email,
+        user: {
+          id: newUser._id,
+          name: newUser.name,
+          email: newUser.email,
+          profileImage: newUser.profileImage,
+        },
         statusText: "User created successfully",
       });
     } else {
