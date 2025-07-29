@@ -18,7 +18,7 @@ app.use(cors(corsOptions));
 
 // Use cookie-parser middleware
 app.use(cookieParser());
-app.use(express.json());
+app.use(express.json({ limit: "20mb" }));
 
 app.get("/", (req, res) => res.send("<h1>hello from server</h1>"));
 

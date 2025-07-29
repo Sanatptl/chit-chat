@@ -2,8 +2,21 @@
 @plugin "daisyui";
 
 @theme {
+  --color-main: #274d60;
+  --color-main: #0a7075;
+  --color-main: #0c969c;
+  --color-main: #ffcb74;
+  --color-background-card: #032f30;
+  --color-background-card: #2f2f2f;
+  --color-background-card: #302e3b;
+  --color-background: #111111;
+  --color-background: #031716;
+  --color-background: #1e1e2a;
+  --color-foreground: #111111;
   --animate-spin-pulse: spin-slow 2s linear infinite,
-    pulse-bright 1.2s ease-in-out infinite;
+    pulse-bright 1.5s ease-in-out infinite;
+
+  --btn-bg: #111111 !important;
 }
 
 @keyframes spin-slow {
@@ -15,9 +28,21 @@
 @keyframes pulse-bright {
   0%,
   100% {
-    filter: brightness(1.2);
+    filter: brightness(1.5);
   }
   50% {
-    filter: brightness(0.7);
+    filter: brightness(0.8);
   }
 }
+
+/* ✅ Override daisyUI's translucent disabled button effect */
+/* @utility btn {
+  @apply disabled:opacity-100 disabled:!filter-none disabled:!bg-[var(--color-main)];
+} */
+/* :is(.btn):is(:disabled, [disabled], .btn-disabled):not(.btn-link):not(
+    .btn-ghost
+  ) {
+  background-color: var(--color-main) !important;
+  opacity: 1 !important;
+  filter: none !important;
+} */

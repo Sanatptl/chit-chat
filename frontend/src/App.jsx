@@ -1,12 +1,13 @@
 import { useEffect } from "react";
+import { Toaster } from "react-hot-toast";
 import { Navbar } from "./components";
 import { Routes, Route, Navigate } from "react-router";
 import { HomePage, LoginPage, ProfilePage, SignupPage } from "./pages";
 import useZustandStore from "./hook/useZustandStore";
 
 const App = () => {
-  const { authUser, checkAuth } = useZustandStore();
-
+  const { checkAuth } = useZustandStore();
+  const authUser = useZustandStore((state) => state.authUser);
   useEffect(() => {
     try {
       checkAuth();
@@ -15,7 +16,7 @@ const App = () => {
     }
   }, [checkAuth]);
   return (
-    <div>
+    <div className="bg-background">
       <Navbar />
       <Routes>
         <Route
@@ -35,6 +36,7 @@ const App = () => {
           element={authUser ? <ProfilePage /> : <Navigate to="/login" />}
         />
       </Routes>
+      <Toaster position="bottom-right" />
     </div>
   );
 };

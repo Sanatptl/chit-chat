@@ -66,7 +66,15 @@ export const login = async function (req, res) {
 
     if (!isPasswordValid) return res.status(401).json("Incorrect password");
     generateToken(user._id, res);
-    res.status(200).json({ message: "login successfull" });
+    res.status(200).json({
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        profileImage: user.profileImage,
+      },
+      message: "Login successfull",
+    });
   } catch (error) {
     console.log(error);
     res.json({ error, message: "bad request" });
@@ -83,7 +91,6 @@ export const logout = (req, res) => {
   // Optionally, you can also clear other session-related cookies if needed
   // res.clearCookie("otherCookieName");
   res.status(200).end();
-  console.log("loged out successfully");
 };
 
 //
@@ -125,7 +132,7 @@ export const updateProfile = async (req, res) => {
   try {
     const { profileImage } = req.body;
     const cloudinaryImageUrl = await cloudinary.uploader.upload(profileImage);
-
+    console.log(cloudinaryImageUrl);
     const updatedUser = await User.findByIdAndUpdate(
       req.user._id,
       { profileImage: cloudinaryImageUrl.secure_url },

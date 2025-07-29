@@ -1,5 +1,6 @@
 import User from "../models/users.model.js";
 import Message from "../models/messages.model.js";
+import cloudinary from "../lib/cloudinary.js";
 
 //
 
@@ -9,13 +10,11 @@ export async function getUsersList(req, res) {
     const users = await User.find({ _id: { $ne: loggedInUserID } }).select(
       "-password"
     );
-    res
-      .status(200)
-      .json({
-        data: users,
-        length: users.length,
-        message: "Users fetched successfully",
-      });
+    res.status(200).json({
+      data: users,
+      length: users.length,
+      message: "Users fetched successfully",
+    });
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }
@@ -30,7 +29,7 @@ export async function sendMessage(req, res) {
     const { id: receiverId } = req.params;
     const senderId = req.user?.id;
     const { content, attachment } = req.body || {}; //prevent app from crashing due to destructuring, use a default value
-    if (!content && !attachment) {
+    if ((!content || !content.trim()) && !attachment) {
       return res
         .status(400)
         .json({ message: "Content or attachment is required" });
@@ -45,7 +44,7 @@ export async function sendMessage(req, res) {
     const newMessage = new Message({
       sender: senderId,
       receiver: receiverId,
-      content,
+      content: content || undefined,
       attachment: imageURL,
     });
 
@@ -58,9 +57,9 @@ export async function sendMessage(req, res) {
   } catch (error) {
     res.status(500).json({
       message: "Message sending unsuccessful",
-      error: error.message,
+      error: error.error?.Message || error.message,
     });
-    console.log("Error in sendMessage controller:", error.message);
+    console.log("Error in sendMessage controller:", error.message, error);
   }
 }
 
@@ -84,7 +83,7 @@ export async function getMessages(req, res) {
       .json({ data: messages, message: "Messages fetched successfully" });
   } catch (error) {
     res.status(500).json({
-      message: "message fetchining unsuccessful",
+      message: "message fetching unsuccessful",
       error: error.message,
     });
   }
