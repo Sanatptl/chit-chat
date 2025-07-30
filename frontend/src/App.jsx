@@ -4,10 +4,12 @@ import { Navbar } from "./components";
 import { Routes, Route, Navigate } from "react-router";
 import { HomePage, LoginPage, ProfilePage, SignupPage } from "./pages";
 import useZustandStore from "./hook/useZustandStore";
+import { Loader } from "lucide-react";
 
 const App = () => {
-  const { checkAuth } = useZustandStore();
+  const { checkAuth, isCheckingAuth } = useZustandStore();
   const authUser = useZustandStore((state) => state.authUser);
+
   useEffect(() => {
     try {
       checkAuth();
@@ -15,6 +17,14 @@ const App = () => {
       console.log("Error in useEffect ", error);
     }
   }, [checkAuth]);
+
+  if (isCheckingAuth && !authUser)
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <Loader className="size-10 animate-spin" />
+      </div>
+    );
+
   return (
     <div className="bg-background">
       <Navbar />

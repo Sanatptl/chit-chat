@@ -6,7 +6,6 @@ import { useState } from "react";
 const ProfilePage = () => {
   const { isUpdatingProfile, authUser, updateProfile } = useZustandStore();
   const [selectedImage, setSelectedImage] = useState(null);
-  console.log(authUser);
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (!file) {

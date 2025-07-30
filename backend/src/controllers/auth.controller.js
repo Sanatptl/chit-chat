@@ -68,7 +68,7 @@ export const login = async function (req, res) {
     generateToken(user._id, res);
     res.status(200).json({
       user: {
-        id: user._id,
+        _id: user._id,
         name: user.name,
         email: user.email,
         profileImage: user.profileImage,
@@ -76,7 +76,7 @@ export const login = async function (req, res) {
       message: "Login successfull",
     });
   } catch (error) {
-    console.log(error);
+    console.log("Error at login authController ", error);
     res.json({ error, message: "bad request" });
   }
 };
