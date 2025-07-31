@@ -1,5 +1,5 @@
 import { Camera } from "lucide-react";
-import useZustandStore from "../hook/useZustandStore";
+import useZustandStore from "../hook/useZustandStore.js";
 import toast from "react-hot-toast";
 import { useState } from "react";
 

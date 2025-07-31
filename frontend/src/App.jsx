@@ -3,7 +3,7 @@ import { Toaster } from "react-hot-toast";
 import { Navbar } from "./components";
 import { Routes, Route, Navigate } from "react-router";
 import { HomePage, LoginPage, ProfilePage, SignupPage } from "./pages";
-import useZustandStore from "./hook/useZustandStore";
+import useZustandStore from "./hook/useZustandStore.js";
 import { Loader } from "lucide-react";
 
 const App = () => {

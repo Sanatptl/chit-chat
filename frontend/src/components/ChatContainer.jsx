@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
-import useZustandStore from "../hook/useZustandStore";
-import useChatStore from "../hook/useChatstore";
+import useZustandStore from "../hook/useZustandStore.js";
+import useChatStore from "../hook/useChatStore.js";
 import MessageSkeleton from "./skeletons/MessageSkeleton";
 import ChatHeader from "./ui/ChatHeader";
 import MessageInput from "./MessageInput";

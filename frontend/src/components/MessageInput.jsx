@@ -1,7 +1,7 @@
 import { Image, Send, X } from "lucide-react";
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
-import useChatStore from "../hook/useChatstore";
+import useChatStore from "../hook/useChatStore";
 
 const MessageInput = () => {
   const [content, setContent] = useState("");

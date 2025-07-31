@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useZustandStore from "../hook/useZustandStore";
+import useZustandStore from "../hook/useZustandStore.js";
 import LabeledIconInput from "../components/ui/LabeledIconInput";
 import AuthFormWrapper from "../components/ui/AuthFormWrapper";
 import { AtSign, LockKeyhole } from "lucide-react";

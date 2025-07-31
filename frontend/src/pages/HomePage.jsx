@@ -1,6 +1,6 @@
 import ChatPlaceholder from "../components/ui/ChatPlaceholder";
 import Sidebar from "../components/Sidebar";
-import useChatStore from "../hook/useChatstore";
+import useChatStore from "../hook/useChatStore.js";
 import ChatContainer from "../components/ChatContainer";
 
 const HomePage = () => {

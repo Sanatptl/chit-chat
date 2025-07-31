@@ -1,5 +1,3 @@
-import React from "react";
-
 //before React 19, we used React.forwardRef to forward refs to DOM elements or class components. In React 18, you can still use it, but it's not always necessary for functional components that don't need to access refs directly.
 // const Input = React.forwardRef(function ({ className, ...props }, ref) {
 //   return <input className={`${className || " "}`} />;
