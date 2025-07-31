@@ -24,7 +24,7 @@ const AuthFormWrapper = ({
   children,
 }) => {
   return (
-    <div className="flex items-center justify-center flex-col min-h-screen bg-background">
+    <div className="flex items-center justify-center flex-col h-screen min-h-screen bg-background">
       <div className="flex items-center flex-col w-full bg-background-card space-y-4 max-w-md  p-6 sm:p-8 shadow-2xl md:p-10 overflow-hidden box-border">
         <CircleUser strokeWidth={1.5} size={48} className="text-main" />
         <h1 className="text-2xl font-semibold text-main">{title}</h1>

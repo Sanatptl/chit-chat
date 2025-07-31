@@ -21,7 +21,7 @@ const Sidebar = () => {
     <aside className="flex flex-col items-center border-r border-base-200 h-full w-20 lg:w-72 transition-all duration-200">
       <div className="border-b p-3 w-full">
         <div className="flex items-center gap-2">
-          <Users className="size-6 text-main" />
+          <Users className="size-4 sm:size-6 text-main" />
           <span className="font-medium hidden lg:block">Contacts</span>
         </div>
       </div>
@@ -41,7 +41,7 @@ const Sidebar = () => {
               <img
                 src={user.profileImage || "/avatar.png"}
                 alt={user.name}
-                className="size-12 object-cover rounded-full"
+                className="size-8 sm:size-12 object-cover rounded-full"
               />
               {onlineUsers.includes(user._id) && (
                 <span

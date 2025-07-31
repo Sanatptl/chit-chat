@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <div className="h-screen bg-background/50">
       <div className="flex items-center justify-center pt-16 px-4">
-        <div className="max-w-6xl w-full h-[calc(100vh-8rem)] shadow-xl rounded-lg">
+        <div className="max-w-6xl w-full h-[calc(100vh-4rem)] sm:h-[calc(100vh-8rem)] shadow-xl rounded-lg">
           <div className="flex h-full rounded-lg overflow-hidden">
             {/* side bar */}
             <Sidebar />

@@ -73,7 +73,7 @@ const MessageBox = () => {
               }`}
             >
               <div className="chat-image avatar">
-                <div className="w-10 rounded-full">
+                <div className="w-5 sm:w-10 rounded-full">
                   <img
                     alt="profile-pic"
                     src={
@@ -97,7 +97,9 @@ const MessageBox = () => {
                     className="sm:max-w-[200px] rounded-md mb-2"
                   />
                 )}
-                {message.content && <p>{message.content}</p>}
+                {message.content && (
+                  <p className="text-sm sm:text-lg">{message.content}</p>
+                )}
               </div>
             </div>
           ))}
