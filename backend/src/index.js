@@ -1,4 +1,5 @@
 import express from "express";
+import { app, server } from "./lib/socket.js";
 import dotenv from "dotenv";
 import path from "path";
 import cors from "cors";
@@ -6,9 +7,7 @@ import connectDB from "./db_config/dbConfig.js";
 import cookieParser from "cookie-parser";
 import authRoute from "./routes/auth.route.js";
 import messageRoute from "./routes/message.route.js";
-import { app, server, io } from "./lib/socket.js";
 
-// dotenv.config({ path: "../.env" });
 dotenv.config({ path: "./.env" });
 connectDB();
 const PORT = process.env.PORT || 5000;
