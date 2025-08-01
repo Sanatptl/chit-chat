@@ -2,7 +2,13 @@ import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { Navbar } from "./components";
 import { Routes, Route, Navigate } from "react-router";
-import { HomePage, LoginPage, ProfilePage, SignupPage } from "./pages";
+import {
+  HomePage,
+  LoginPage,
+  ProfilePage,
+  SettingPage,
+  SignupPage,
+} from "./pages";
 import useZustandStore from "./hook/useZustandStore.js";
 import { Loader } from "lucide-react";
 
@@ -44,6 +50,10 @@ const App = () => {
         <Route
           path="/profile"
           element={authUser ? <ProfilePage /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/setting"
+          element={authUser ? <SettingPage /> : <Navigate to="/login" />}
         />
       </Routes>
       <Toaster position="bottom-right" />
